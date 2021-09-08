@@ -2,7 +2,7 @@ all_sensors = ['Time', 'FL_VSS', 'FR_VSS', 'BL_VSS', 'BR_VSS', 'FL_SUS_POT', 'FR
                'STEER_ANG', 'OIL_TEMP', 'OIL_PRES', 'MAP', 'MAT', 'TPS', 'FL_BRK_TMP', 'FR_BRK_TMP', 'BL_BRK_TMP',
                'BR_BRK_TMP', 'F_BRK_PRES', 'B_BRK_PRES', 'COOL_TEMP', 'ACCELX', 'ACCELY', 'ACCELZ', 'GYROX', 'GYROY',
                'GYROZ', 'MAGNETX', 'MAGNETY', 'MAGNETZ', 'NEUT', 'AVG_VSS', 'LAMBDA1', 'LAMBDA2', 'VOLT', 'GEAR',
-               'RPM', 'IG_CUT']
+               'RPM', 'IG_CUT', 'TEST_SENS']
 # change the ordering of this to the desired order for the dropdown lists and the order for the 'all sensors' tab
 
 all_xbee_sensors = ['FL_VSS', 'FR_VSS', 'BL_VSS', 'BR_VSS', 'FL_SUS_POT', 'FR_SUS_POT', 'BL_SUS_POT', 'BR_SUS_POT',
@@ -17,7 +17,7 @@ group1 = ['AVG_VSS', 'FL_VSS', 'FR_VSS', 'BL_VSS', 'BR_VSS', 'ACCELX', 'ACCELY',
 group2 = ['FL_SUS_POT', 'FR_SUS_POT', 'BL_SUS_POT', 'BR_SUS_POT', 'STEER_ANG', 'GYROX', 'GYROY', 'GYROZ', 'MAGNETX',
           'MAGNETY', 'MAGNETZ', 'LAMBDA1', 'LAMBDA2']
 group3 = ['TPS', 'OIL_PRES', 'OIL_TEMP', 'MAP', 'MAT', 'NEUT', 'VOLT', 'RPM', 'GEAR', 'IG_CUT']
-group4 = ['FL_BRK_TMP', 'FR_BRK_TMP', 'BL_BRK_TMP', 'BR_BRK_TMP', 'F_BRK_PRES', 'B_BRK_PRES', 'COOL_TEMP']
+group4 = ['FL_BRK_TMP', 'FR_BRK_TMP', 'BL_BRK_TMP', 'BR_BRK_TMP', 'F_BRK_PRES', 'B_BRK_PRES', 'COOL_TEMP', 'TEST_SENS']
 
 groups = [group1, group2, group3, group4]
 
@@ -288,6 +288,13 @@ sensors_info = {
     'IG_CUT': {
         'label': 'Ignition Cut',
         'id': 'IG_CUT',
+        'units': '',
+        'min_value': 0,
+        'max_value': 1
+    },
+    'TEST_SENS' : {
+        'label': 'Test Sensor',
+        'id': 'TEST_SENS',
         'units': '',
         'min_value': 0,
         'max_value': 1
