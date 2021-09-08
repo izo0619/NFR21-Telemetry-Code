@@ -24,19 +24,21 @@ df = pd.read_csv(file)
 
 
 class variables:
-    most_recent_time = df['Time'][len(df) - 1]
+    most_recent_time = df['time'][len(df) - 1]
 
-
+# list of keys of sensor info dict, seems like kind of convoluted - rewrote
+# def all_sensors():
+#     result = []
+#     for sensor in sensors.sensors_info:
+#         result.append(sensors.sensors_info[sensor])
+#     return result
 def all_sensors():
-    result = []
-    for sensor in sensors.sensors_info:
-        result.append(sensors.sensors_info[sensor])
-    return result
+    return list(sensors.sensors_info.values())
 
 
 all_sensors_lst = all_sensors()
 
-
+# returns list of label and id for each sensor for dropdown
 def create_options():
     result = []
     for i in range(len(all_sensors_lst)):
