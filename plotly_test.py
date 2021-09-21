@@ -18,9 +18,16 @@ colors = {
 }
 
 # change this file that the csv is stored in
-file = 'TelemetryData/'+input('Enter the name of the csv file to read from: ') #data.csv
+valid_name = False
+while not valid_name:
+    file = 'TelemetryData/'+input('\nEnter the name of the csv file to read from: ') #data.csv
+    try:
+        df = pd.read_csv(file)
+        valid_name = True
+    except:
+        print("\nNot a valid name, please try again.\n")
 refresh_rate = (1/5 * 1000)  # change the denominator to the refreshes you want per second
-df = pd.read_csv(file)
+
 
 
 class variables:

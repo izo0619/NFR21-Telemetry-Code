@@ -10,18 +10,23 @@ import sensor_list_test as sl
 
 # from digi.xbee.devices import XBeeDevice
 
-user_filename = input("""Please name the output data file. Note: Naming a file that already exists will append to that file. 
-    Leaving this blank will automatically name the file based on the current date and time: """)
-if user_filename != "":
-    csv_name = "Telemetry_Data/"+user_filename+".csv"
-else:
-    csv_name = "Telemetry_Data/"+str(dt.datetime)+".csv"
+valid_name = False
+while not valid_name:
+    user_filename = input("""Please name the output data file. Note: Naming a file that already exists will append to that file. 
+        Leaving this blank will automatically name the file based on the current date and time: """)
+    if user_filename != "":
+        csv_name = "Telemetry_Data/"+user_filename+".csv"
+    else:
+        csv_name = "Telemetry_Data/"+str(dt.datetime)+".csv"
 
-if not os.path.exists(csv_name):
-    try:
-         open(csv_name, 'w', newline="")
-    except:
-        pass
+    if not os.path.exists(csv_name):
+        try:
+            open(csv_name, 'w', newline="")
+            valid_name = True
+        except:
+            print("\nNot a valid name, please try again.\n")
+    else:
+        valid_name = True
 
 #"Telemetry_Data/test_data.csv"
 
