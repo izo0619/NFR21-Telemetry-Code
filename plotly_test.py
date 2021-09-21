@@ -18,7 +18,7 @@ colors = {
 }
 
 # change this file that the csv is stored in
-file = 'TelemetryData/data.csv'
+file = 'TelemetryData/'+input('Enter the name of the csv file to read from: ') #data.csv
 refresh_rate = (1/5 * 1000)  # change the denominator to the refreshes you want per second
 df = pd.read_csv(file)
 
