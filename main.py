@@ -3,17 +3,26 @@ import struct
 import serial
 import serial.tools.list_ports
 import datetime as dt
+import os
 import numpy as np
 import telemetry_csv as tc
 import sensor_list_test as sl
 
 # from digi.xbee.devices import XBeeDevice
 
-user_filename = input("Please name the output data file. Note: leaving this blank will automatically name the file based on the current date and time: ")
+user_filename = input("""Please name the output data file. Note: Naming a file that already exists will append to that file. 
+    Leaving this blank will automatically name the file based on the current date and time: """)
 if user_filename != "":
     csv_name = "Telemetry_Data/"+user_filename+".csv"
 else:
     csv_name = "Telemetry_Data/"+str(dt.datetime)+".csv"
+
+if not os.path.exists(csv_name):
+    try:
+         open(csv_name, 'w', newline="")
+    except:
+        pass
+
 #"Telemetry_Data/test_data.csv"
 
 
@@ -79,6 +88,7 @@ if device != None:
 
         csv_list = np.concatenate((np.array([index, current_time]), sensor_values))
         index += 1
+        
         tc.csv_store_data(csv_name, sl.all_xbee_sensors, csv_list)
         print(csv_list)
 
