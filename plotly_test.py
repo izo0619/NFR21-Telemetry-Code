@@ -24,7 +24,7 @@ df = pd.read_csv(file)
 
 
 class variables:
-    most_recent_time = df['time'][len(df) - 1]
+    most_recent_time = df['Time'][len(df) - 1]
 
 # list of keys of sensor info dict, seems like kind of convoluted - rewrote
 # def all_sensors():

@@ -72,8 +72,9 @@ if device != None:
         ''' decoode "byte" type and remove newline char '''
         # v = raw_values.decode('utf-8', errors='ignore').strip('\n').strip('\r')
         tuple_values = struct.unpack('>'+'h'*(size//2), raw_values[len(raw_values)-size:len(raw_values)])  # data type: tuple
+
         sensor_values = np.asarray(tuple_values[:len(tuple_values)-1]) / (10 ** 1) ## sig_list
-        print(current_time)
+        print("time: " + str(current_time) + " and size of raw values is " + str(len(raw_values)) + " and size of sensor_values is " +  str(len(sensor_values)))
         print(sensor_values[1])
 
         csv_list = np.concatenate((np.array([index, current_time]), sensor_values))
