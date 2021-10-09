@@ -23,6 +23,8 @@ try:
 except:
     None
 
+print("hi")
+
 ''' Establish serial device connection '''
 # device = serial.Serial('\\dev\\tty.usbserial-D306E0R6', 9600)
 device = select_serial_port()
